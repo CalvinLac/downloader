@@ -1,11 +1,12 @@
 require 'mechanize'
+require 'fileutils'
 
 class Downloader 
   def initialize
   end
 
   def download(uri, save_location, match = {})
-    Dir.mkdir(save_location)
+    FileUtils::mkdir_p(save_location)
     agent = Mechanize.new
     agent.pluggable_parser.default = Mechanize::Download
     page = agent.get(uri)

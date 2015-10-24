@@ -18,8 +18,9 @@ class Downloader
       download_page = link.click
       download_match = {:text => /download/i} # match depends on page attributes
       file = download_page.link_with(download_match).click
-      
-      path = "#{save_location}/#{file.filename}"
+      filename = CGI::unescape(file.filename) # to decode name on url to the native filename
+
+      path = "#{save_location}/#{filename}"
       agent.get(file).save(path)
     end
   end

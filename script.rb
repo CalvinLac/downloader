@@ -1,19 +1,19 @@
-require './downloader.rb'
+require ''
 
 # relative path you want to save to
 # eg. 'folder1/subfolder'
-save_location = 'usagi_drop_ost'
+save_location = ''
 
 # the uri that you want to start to download from
-uri = 'http://anime.thehylia.com/soundtracks/album/usagi-drop-original-soundtrack'
+uri = ''
 
 # since there will probably extraneous/irrelevant links on the page,
 # specify a 'match' that pertains to the selected links
 # eg. if I have two links
-#        <href='https://somelink.com/coolsongs/song1'
-#        <href='https://somelink.com/coolsongs/song2'
-#     I will use the match ':href => /song'
-match = {:href => /usagi/}
+#        <a href='https://somelink.com/coolsongs/song1'>band</a>
+#        <a href='https://somelink.com/coolsongs/song2'>band2</a>
+#     I could use matches like :href => /song/, :text => /band/
+match = {}
 
 # run script
 downloader = Downloader.new
